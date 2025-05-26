@@ -1001,19 +1001,20 @@ class SyncManager {
 
     _cursorManagers['dashboard'] = CursorManager<List<Dashboard>>(
         'dashboard', _cursorRepository, (cursor, setCursor) async {
-      final updatedAt = cursor.value['updatedAt'];
-      final page = cursor.value['page'] ?? 1;
+      // Verificar si ya existe un cursor con datos
+      if (cursor.value.isNotEmpty) {
+        print('Dashboard already synced, stopping sync process');
+        return [];
+      }
 
       print('\n=== Fetching Dashboard ===');
-      print('UpdatedAt: $updatedAt');
-      print('Page: $page');
+      print('Initial sync - no previous data');
 
-      final dashboards = await dashboardService.query(updatedAt: updatedAt, page: page);
+      final dashboards = await dashboardService.query(updatedAt: null, page: 1);
       
       print('\n=== Dashboard from API ===');
       if (dashboards.isEmpty) {
-        print('No dashboard data found, resetting cursor');
-        setCursor({'updatedAt': updatedAt, 'page': 1});
+        print('No dashboard data found');
         return [];
       }
 
@@ -1034,17 +1035,15 @@ class SyncManager {
       await dashboardService.updateOrCreate(dashboard);
       print('Dashboard saved successfully');
 
-      final newCursor = {
+      // Establecer el cursor como completado
+      setCursor({
         'updatedAt': dashboard.updatedAt?.toIso8601String() ?? '',
-        'page': page + 1,
-      };
-      setCursor(newCursor);
+        'page': 1,
+        'completed': true
+      });
 
-      print('\n=== Cursor Updated ===');
-      print('New UpdatedAt: ${newCursor['updatedAt']}');
-      print('New Page: ${newCursor['page']}');
-
-      return dashboards;
+      print('\n=== Dashboard Sync Completed ===');
+      return [];
     });
     print('=== Dashboard Sync Initialized ===\n');
   }

@@ -63,7 +63,10 @@ class LoginViewState extends State<LoginView> {
           // Show error message
           if (mounted) {
             ScaffoldMessenger.of(context).showSnackBar(
-              const SnackBar(content: Text('Usuario o contraseña incorrectos')),
+              const SnackBar(
+                content: Text('Usuario o contraseña incorrectos'),
+                duration: Duration(seconds: 10),
+              ),
             );
           }
         }
@@ -71,7 +74,10 @@ class LoginViewState extends State<LoginView> {
         if (mounted) {
           Navigator.pop(context); // Dismiss the loading indicator
           ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(content: Text('Error al iniciar sesión')),
+            const SnackBar(
+              content: Text('Error al iniciar sesión'),
+              duration: Duration(seconds: 10),
+            ),
           );
         }
       }
@@ -227,6 +233,7 @@ class LoginViewState extends State<LoginView> {
                                   const SnackBar(
                                     content: Text('Base de datos regenerada exitosamente'),
                                     backgroundColor: Colors.green,
+                                    duration: Duration(seconds: 10),
                                   ),
                                 );
                               }
@@ -236,6 +243,7 @@ class LoginViewState extends State<LoginView> {
                                   SnackBar(
                                     content: Text('Error al regenerar la base de datos: $e'),
                                     backgroundColor: Colors.red,
+                                    duration: const Duration(seconds: 10),
                                   ),
                                 );
                               }

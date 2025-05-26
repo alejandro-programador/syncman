@@ -34,7 +34,7 @@ class ApiClientReadRepository extends ClientReadRepository {
     final response = await _api.getRequestNew('/clientes/$id');
     final data = response?.data;
 
-    if (data) {
+    if (data != null) {
       return Client.fromMap(data);
     }
 
@@ -46,7 +46,7 @@ class ApiClientReadRepository extends ClientReadRepository {
     final response = await _api.getRequestNew('/clientes/codigo/$codigo');
     final data = response?.data;
 
-    if (data) {
+    if (data != null) {
       return Client.fromMap(data);
     }
 

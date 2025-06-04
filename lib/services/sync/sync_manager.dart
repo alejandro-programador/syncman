@@ -111,49 +111,49 @@ class SyncManager {
     // Regenerar la base de datos
     // await _database.regenerateDB();
 
-    print('=== Adding Dashboard Cursor ===');
-    await addDashboardCursor();
-    print('=== Dashboard Cursor Added ===');
+    // print('=== Adding Dashboard Cursor ===');
+    // await addDashboardCursor();
+    // print('=== Dashboard Cursor Added ===');
 
     print('=== Adding Client Cursor ===');
-    addClientCursor();
+    await addClientCursor();
     print('=== Client Cursor Added ===');
 
     print('=== Adding Seller Cursor ===');
-    addSellerCursor();
+    await addSellerCursor();
     print('=== Seller Cursor Added ===');
 
-    print('=== Adding Return Record Cursor ===');
-    await addReturnRecordCursor();
-    print('=== Return Record Cursor Added ===');
+    // print('=== Adding Return Record Cursor ===');
+    // await addReturnRecordCursor();
+    // print('=== Return Record Cursor Added ===');
 
-    print('=== Adding Valija Cursor ===');
-    addValijaCursor();
-    print('=== Valija Cursor Added ===');
+    // print('=== Adding Valija Cursor ===');
+    // addValijaCursor();
+    // print('=== Valija Cursor Added ===');
 
-    print('=== Adding Collect Cursor ===');
-    addCollectCursor();
-    print('=== Collect Cursor Added ===');
+    // print('=== Adding Collect Cursor ===');
+    // addCollectCursor();
+    // print('=== Collect Cursor Added ===');
 
-    print('=== Adding Bill Cursor ===');
-    addBillCursor();
-    print('=== Bill Cursor Added ===');
+    // print('=== Adding Bill Cursor ===');
+    // addBillCursor();
+    // print('=== Bill Cursor Added ===');
 
-    print('=== Adding Article Cursor ===');
-    addArticleCursor();
-    print('=== Article Cursor Added ===');
+    // print('=== Adding Article Cursor ===');
+    // addArticleCursor();
+    // print('=== Article Cursor Added ===');
 
-    print('=== Adding Collect Payment Method Cursor ===');
-    addCollectPaymentMethodCursor();
-    print('=== Collect Payment Method Cursor Added ===');
+    // print('=== Adding Collect Payment Method Cursor ===');
+    // addCollectPaymentMethodCursor();
+    // print('=== Collect Payment Method Cursor Added ===');
 
-    print('=== Adding Tipo Precio Cursor ===');
-    addTipoPrecioCursor();
-    print('=== Tipo Precio Cursor Added ===');
+    // print('=== Adding Tipo Precio Cursor ===');
+    // addTipoPrecioCursor();
+    // print('=== Tipo Precio Cursor Added ===');
 
-    print('=== Adding Currency Cursor ===');
-    addCurrencyCursor();
-    print('=== Currency Cursor Added ===');
+    // print('=== Adding Currency Cursor ===');
+    // addCurrencyCursor();
+    // print('=== Currency Cursor Added ===');
   }
 
   Future<void> sync(String cursorName) async {

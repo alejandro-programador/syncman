@@ -5,7 +5,7 @@ import 'package:syncman_new/utils/load_data_utils.dart';
 
 void startForegroundTask() {
   Timer.periodic(
-      const Duration(minutes: 3),
+      const Duration(minutes: 4),
       (timer) async {
     final prefs = await SharedPreferences.getInstance();
     final lastDateStr = prefs.getString('lastLoadDataDate');
